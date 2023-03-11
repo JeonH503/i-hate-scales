@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin:0;
+    height:100hw;
+    background:#F6F6F6;
   }
 
   h2, p {
@@ -19,6 +21,11 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     font-size: 1rem;
+  }
+
+  a {
+      margin:10px 20px;
+      text-decoration: none;
   }
 `;
 
