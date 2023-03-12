@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin:0;
-    height:100hw;
+    height:100vh;
     background:#F6F6F6;
   }
 
