@@ -1,10 +1,16 @@
 import styled from 'styled-components'
 import Metronome from '@/components/Metronome/Metronome'
 
-const Text = styled.div`
+const Wrap = styled.div`
+    width:65%;
+    margin:0 auto;
+    height:35vh;
+`
+
+const MetronomeWrap = styled.div`
     display:flex;
     width:100%;
-    height:50vh;
+    height:100%;
     justify-content:center;
     align-items:center;
     background:white;
@@ -13,8 +19,11 @@ const Text = styled.div`
 
 export default function metronome() {
     return (
-        <Text>
-          <Metronome/>
-        </Text>
+        <Wrap>
+            <h1>Metronome</h1>
+            <MetronomeWrap>
+                <Metronome/>
+            </MetronomeWrap>
+        </Wrap>
     )
 }

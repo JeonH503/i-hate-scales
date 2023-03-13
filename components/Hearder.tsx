@@ -11,7 +11,7 @@ const HeaderWrap = styled.div`
 const Logo = styled.div`
     position: relative;
     height:100px;
-    border-bottom:1px solid #F6F6F6;
+    border-bottom:1px solid ${({ theme }) => theme.color.background};
     margin:0 30vw;
     & img {
         width:auto !important;
@@ -25,7 +25,7 @@ const Nav = styled.div`
     justify-content:center;
 
     & a {
-        color: #F6F6F6;
+        color: ${({ theme }) => theme.color.background};
         position:relative;
     }
 
@@ -34,7 +34,7 @@ const Nav = styled.div`
         content:'';
         width:100%;
         height:3px;
-        background:#F6F6F6;
+        background:${({ theme }) => theme.color.background};
         position:absolute;
         transform:scaleX(0);
         transition: all 0.2s;
@@ -52,11 +52,11 @@ function Header () {
             <Image alt="logo" fill={true} style={{objectFit:"contain"}} src="/logo.png"/>
         </Logo>
         <Nav>
-            <Link href="/">
+            <Link href="/metronome">
                 <p>메트로놈</p>
             </Link>
             
-            <Link href="/">
+            <Link href="/scales">
                 <p>스케일</p>
             </Link>
         </Nav>

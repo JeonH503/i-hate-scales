@@ -27,6 +27,11 @@ const GlobalStyle = createGlobalStyle`
       margin:10px 20px;
       text-decoration: none;
   }
+
+  input[type=range] {
+    accent-color: #8f733d;
+    background:white;
+  }
 `;
 
 export default GlobalStyle;
