@@ -17,6 +17,7 @@ const Fretboard = styled.div`
     flex-direction: row;
     flex-direction: column;
     height:220px;
+    padding: 0 25px;
 ` 
 
 const String = styled.div`
