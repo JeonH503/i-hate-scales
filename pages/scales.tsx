@@ -1,5 +1,8 @@
+import {memo} from "react"
 import Carousel from '@/components/Carousel/Carousel'
 import styled from 'styled-components'
+import sclaes_data from '@/components/Scales/scales.json'
+
 
 interface Flet {
     code?:string;
@@ -87,186 +90,30 @@ const NumberFlet = styled(OpenFlet)<Flet>`
     ${({code}) => code && `
         &:after {
             content:'${code}'; 
-            background:none;
+            background:none;z
         }
     `}
-` //
+`
+
+const Scales = () => {
+    return sclaes_data.map((scale,i) => {
+        let values_of_object = Object.values(scale)
+        return <Fretboard>{values_of_object.map((string, i) => {
+            if(i === 0) {
+                return <OpenString key={"string"+i}>{string.map((flet,i) => <NumberFlet key={"flet"+i} code={flet} />)}</OpenString>
+            } else {
+                return <String key={"string"+i}>{string.map((flet,i) => i === 0 ? <OpenFlet key={"flet"+i} code={flet} /> : <Flet key={"flet"+i} code={flet} />)}</String>
+            }
+        })}</Fretboard>
+    })
+}
+// const MemoScale = memo(Scale)
 
 export default function scales() {
     return (
         <Wrap>
             <Carousel>
-                <Fretboard>
-                    <OpenString>
-                        <NumberFlet code="0"/>
-                        <NumberFlet code="1"/>
-                        <NumberFlet code="2"/>
-                        <NumberFlet code="3"/>
-                        <NumberFlet code="4"/>
-                        <NumberFlet code="5"/>
-                        <NumberFlet code="6"/>
-                        <NumberFlet code="7"/>
-                        <NumberFlet code="8"/>
-                        <NumberFlet code="9"/>
-                        <NumberFlet code="10"/>
-                        <NumberFlet code="11"/>
-                        <NumberFlet code="12"/>
-                        <NumberFlet code="13"/>
-                        <NumberFlet code="14"/>
-                        <NumberFlet code="15"/>
-                        <NumberFlet code="16"/>
-                        <NumberFlet code="17"/>
-                        <NumberFlet code="18"/>
-                        <NumberFlet code="19"/>
-                        <NumberFlet code="20"/>
-                        <NumberFlet code="21"/>
-                    </OpenString>
-                    <String>
-                        <OpenFlet code="E"/>
-                        <Flet code="F"/>
-                        <Flet/>
-                        <Flet code="G"/>
-                        <Flet/>
-                        <Flet code="A"/>
-                        <Flet/>
-                        <Flet code="B"/>
-                        <Flet code="C"/>
-                        <Flet/>
-                        <Flet code="D"/>
-                        <Flet/>
-                        <Flet code="E"/>
-                        <Flet code="F"/>
-                        <Flet/>
-                        <Flet code="G"/>
-                        <Flet/>
-                        <Flet code="A"/>
-                        <Flet/>
-                        <Flet code="B"/>
-                        <Flet code="C"/>
-                        <Flet/>
-                    </String>
-                    <String>
-                        <OpenFlet code="B"/>
-                        <Flet code="C"/>
-                        <Flet/>
-                        <Flet code="D"/>
-                        <Flet/>
-                        <Flet code="E"/>
-                        <Flet code="F"/>
-                        <Flet/>
-                        <Flet code="G"/>
-                        <Flet/>
-                        <Flet code="A"/>
-                        <Flet/>
-                        <Flet direction="up" code="B"/>
-                        <Flet code="C"/>
-                        <Flet/>
-                        <Flet code="D"/>
-                        <Flet/>
-                        <Flet code="E"/>
-                        <Flet code="F"/>
-                        <Flet/>
-                        <Flet code="G"/>
-                        <Flet/>
-                    </String>
-                    <String>
-                        <OpenFlet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                        <Flet/>
-                        <Flet direction="down"/>
-                    </String>
-                    <String>
-                        <OpenFlet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                    </String>
-                    <String>
-                        <OpenFlet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet direction="up"/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                    </String>
-                    <String>
-                        <OpenFlet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                        <Flet/>
-                    </String>
-                </Fretboard>
-                <Fretboard></Fretboard>
+                {Scales()}
             </Carousel>
         </Wrap>
     )

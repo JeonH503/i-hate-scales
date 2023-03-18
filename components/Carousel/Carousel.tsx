@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef,MouseEvent} from "react";
+import React,{useMemo,useState,useEffect,useRef,MouseEvent} from "react";
 import styled from "styled-components"; 
 
 interface slideProps {
@@ -143,25 +143,26 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
     useEffect(() => {
     },[])
 
-    const RenderSlides = () => {
+    const RenderSlides = useMemo(() => {
         // slides 맨앞, 맨뒤에 하나씩 더 추가
         let childrens
         if(children) {
             let temp = [children[children.length-1], ...children,children[0]]
-            childrens = React.Children.map(temp, (e) => {
-                return <Slide>
+            childrens = temp.map((e,i) => {
+                return <Slide key={i}>
                     {e}
                 </Slide>
             })
         }
 
         return <>{childrens}</>
-    }
+    },[children])
 
     return (
         <CarouselWrap onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseMove={onMouseMove} onMouseLeave={onMouseUp} ref={slideRef}>
             <Slides slideSize={slideSize} slideIndex={slideIndex} dragPos={dragPos} animating={animating}>
-                <RenderSlides/>
+                {RenderSlides}
+                {/* <Slide>d</Slide> */}
             </Slides>
             
             <Buttons>
