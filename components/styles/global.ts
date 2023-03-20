@@ -6,9 +6,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    font-family: 'Jua', sans-serif;
     margin:0;
     height:100vh;
     background:#F6F6F6;
+  } 
+
+  button {
+    font-family: 'Jua',sans-serif;
   }
 
   h2, p {

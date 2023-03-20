@@ -10,7 +10,7 @@ interface Flet {
 }
 
 const Wrap = styled.div`
-    width:65%;
+    width:100%;
     margin:0 auto;
     height:35vh;
 `
@@ -56,7 +56,7 @@ const Flet = styled.div<Flet>`
         height:20px; 
         border-radius:20px; 
         background:white;
-        ${direction === 'down' ? "bottom:-10px;" : "bottom: 8px;" }
+        ${direction === 'down' ? "bottom:-10px;" : "bottom: 5px;" }
         z-index:1;
     }`}
 
@@ -69,10 +69,23 @@ const Flet = styled.div<Flet>`
             height:22px; 
             border-radius:22px; 
             background:${code === 'C' ? "#ff8000" : "yellow"};
-            bottom: 8px;
+            bottom: 5px;
             z-index:3;
         }
     `}
+
+    @media screen and (max-width: 625px) {
+        font-size:12.5px;
+
+        &:after {
+            width:15px; 
+            height:15px; 
+            border-radius:15px; 
+            bottom: 8px;
+        }
+    }
+
+    
 ` //각각의 프렛
 const OpenFlet = styled(Flet)<Flet>`
     background:white;

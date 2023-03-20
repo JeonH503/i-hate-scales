@@ -18,6 +18,11 @@ const Logo = styled.div`
         transform: translateX(-50%);
         left:50% !important;
     }
+
+
+    @media screen and (max-width: 768px) {
+        margin:0;    
+    }    
 `
 
 const Nav = styled.div`

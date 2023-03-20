@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Metronome from '@/components/Metronome/Metronome'
 
 const Wrap = styled.div`
-    width:65%;
+    width:100%;
     margin:0 auto;
     height:35vh;
 `
