@@ -52,6 +52,7 @@ const CarouselWrap = styled.div`
     overflow: hidden;
     width: 100%;
     user-select:none;
+    margin-bottom:20px;
 `
 
 const Slides = styled.div<slideProps>`

@@ -1,7 +1,6 @@
 import styled from 'styled-components'; 
 import Image from 'next/image';
 import Link from 'next/link'
-
 const HeaderWrap = styled.div`
     width:100vw;
     height:140px;

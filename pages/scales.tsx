@@ -2,7 +2,7 @@ import {memo} from "react"
 import Carousel from '@/components/Carousel/Carousel'
 import styled from 'styled-components'
 import sclaes_data from '@/components/Scales/scales.json'
-
+import Head from "next/head"
 
 interface Flet {
     code?:string;
@@ -12,7 +12,16 @@ interface Flet {
 const Wrap = styled.div`
     width:100%;
     margin:0 auto;
-    height:35vh;
+`
+
+const CarouselWrap = styled.div`
+    display:flex;
+    width:100%;
+    height:100%;
+    justify-content:center;
+    align-items:center;
+    background:white;
+    border-radius:30px;
 `
 
 const Fretboard = styled.div`
@@ -108,11 +117,21 @@ const NumberFlet = styled(OpenFlet)<Flet>`
     `}
 `
 
+const CodeTitle = styled.h2`
+    text-align:center;
+    margin-top:10px;
+`
+
 const Scales = () => {
     return sclaes_data.map((scale,i) => {
         let values_of_object = Object.values(scale)
+        
         return <Fretboard>{values_of_object.map((string, i) => {
-            if(i === 0) {
+            if(typeof string === 'string'){
+                return <CodeTitle>{string}</CodeTitle>
+            }
+            
+            if(i === 1) {
                 return <OpenString key={"string"+i}>{string.map((flet,i) => <NumberFlet key={"flet"+i} code={flet} />)}</OpenString>
             } else {
                 return <String key={"string"+i}>{string.map((flet,i) => i === 0 ? <OpenFlet key={"flet"+i} code={flet} /> : <Flet key={"flet"+i} code={flet} />)}</String>
@@ -125,9 +144,29 @@ const Scales = () => {
 export default function scales() {
     return (
         <Wrap>
-            <Carousel>
-                {Scales()}
-            </Carousel>
+            <Head>
+                <title>Scales</title>
+            </Head>
+            <h1>Scales</h1>
+            <CarouselWrap>
+                <Carousel>
+                    {Scales()}
+                </Carousel>
+            </CarouselWrap>
+
+            <h1>What Is Scales</h1>
+            <CarouselWrap>
+                <h3>
+                    스케일이란 어떤 음을 기준으로 한 옥타브의 연속되는 음들의 배열입니다.
+                </h3>
+            </CarouselWrap>
+
+            <h1>How To Use</h1>
+            <CarouselWrap>
+                <h3>
+                    이 페이지에서는 각 스케일의 종류와 그 음들을 한 눈에 편하게 볼 수 있도록 만들어진 페이지입니다.
+                </h3>
+            </CarouselWrap>
         </Wrap>
     )
 }
