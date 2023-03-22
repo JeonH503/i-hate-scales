@@ -7,6 +7,7 @@ import Head from "next/head"
 interface Flet {
     code?:string;
     direction?:string;
+    rootCode?:string;
 }
 
 const Wrap = styled.div`
@@ -17,7 +18,7 @@ const Wrap = styled.div`
 const CarouselWrap = styled.div`
     display:flex;
     width:100%;
-    height:100%;
+    height:280px;
     justify-content:center;
     align-items:center;
     background:white;
@@ -69,7 +70,7 @@ const Flet = styled.div<Flet>`
         z-index:1;
     }`}
 
-    ${({code}) => code && `
+    ${({code,rootCode}) => code && `
         &:after {
             text-align:center;
             content:'${code}'; 
@@ -77,7 +78,7 @@ const Flet = styled.div<Flet>`
             width:22px; 
             height:22px; 
             border-radius:22px; 
-            background:${code === 'C' ? "#ff8000" : "yellow"};
+            background:${code === rootCode ? "#ff8000" : "yellow"};
             bottom: 5px;
             z-index:3;
         }
@@ -125,16 +126,17 @@ const CodeTitle = styled.h2`
 const Scales = () => {
     return sclaes_data.map((scale,i) => {
         let values_of_object = Object.values(scale)
-        
+        let rootCode = ''
         return <Fretboard>{values_of_object.map((string, i) => {
             if(typeof string === 'string'){
+                rootCode = string
                 return <CodeTitle>{string}</CodeTitle>
             }
             
             if(i === 1) {
                 return <OpenString key={"string"+i}>{string.map((flet,i) => <NumberFlet key={"flet"+i} code={flet} />)}</OpenString>
             } else {
-                return <String key={"string"+i}>{string.map((flet,i) => i === 0 ? <OpenFlet key={"flet"+i} code={flet} /> : <Flet key={"flet"+i} code={flet} />)}</String>
+                return <String key={"string"+i}>{string.map((flet,i) => i === 0 ? <OpenFlet rootCode={rootCode} key={"flet"+i} code={flet} /> : <Flet rootCode={rootCode} key={"flet"+i} code={flet} />)}</String>
             }
         })}</Fretboard>
     })

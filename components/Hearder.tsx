@@ -53,7 +53,9 @@ const Nav = styled.div`
 function Header () {
     return <HeaderWrap>
         <Logo>
-            <Image alt="logo" fill={true} style={{objectFit:"contain"}} src="/logo.png"/>
+            <Link href="/">
+                <Image alt="logo" fill={true} style={{objectFit:"contain"}} src="/logo.png"/>
+            </Link>
         </Logo>
         <Nav>
             <Link href="/metronome">
