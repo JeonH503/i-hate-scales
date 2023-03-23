@@ -1,6 +1,6 @@
 import styled from "styled-components"; 
 
-const Beat = styled.td `
+const Beat = styled.td<{index:number, beatIndex:number}>`
     display: block;
     margin: 0 10px;
     width: 20px;
@@ -9,7 +9,7 @@ const Beat = styled.td `
     background-color: ${(props)=>props.index === props.beatIndex ? "rgb(143, 143, 143)" : "gainsboro"};
 `
 
-function BeatElements (props) {
+function BeatElements (props:{beat:number, beatIndex:number}) {
     let temp = Array(props.beat).fill(0)
     return <>
         {temp.map((e,i) => <Beat key={i} index={i} beatIndex={props.beatIndex}></Beat>)}
