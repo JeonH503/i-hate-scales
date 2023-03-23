@@ -127,10 +127,10 @@ const Scales = () => {
     return sclaes_data.map((scale,i) => {
         let values_of_object = Object.values(scale)
         let rootCode = ''
-        return <Fretboard>{values_of_object.map((string, i) => {
+        return <Fretboard key={scale.code}>{values_of_object.map((string, i) => {
             if(typeof string === 'string'){
                 rootCode = string
-                return <CodeTitle>{string}</CodeTitle>
+                return <CodeTitle key={string}>{string}</CodeTitle>
             }
             
             if(i === 1) {
@@ -141,7 +141,6 @@ const Scales = () => {
         })}</Fretboard>
     })
 }
-// const MemoScale = memo(Scale)
 
 export default function scales() {
     return (
