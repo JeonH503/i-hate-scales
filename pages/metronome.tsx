@@ -30,7 +30,7 @@ export default function metronome() {
             </MetronomeWrap>
             
         
-            <h1>What is Metronome</h1>
+            {/* <h1>What is Metronome</h1>
             <MetronomeWrap>
                 <p>
                     메트로놈은 일정한 시간 간격으로 소리를 낸다 소리를 내주어 정확한 박자에 연주를 할 수 있도록 도와주는 기능입니다
@@ -44,7 +44,7 @@ export default function metronome() {
                     이 페이지에서는 메트로놈의 BPM을 조절 할 수 있으며
                     박자를 1/4 박자 부터 7/4 박자 까지 변경이 가능합니다.
                 </p>
-            </MetronomeWrap>
+            </MetronomeWrap> */}
         </Wrap>
     )
 }

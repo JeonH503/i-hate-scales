@@ -156,7 +156,7 @@ export default function scales() {
                 </Carousel>
             </CarouselWrap>
 
-            <h1>What Is Scales</h1>
+            {/* <h1>What Is Scales</h1>
             <CarouselWrap>
                 <h3>
                     스케일이란 어떤 음을 기준으로 한 옥타브의 연속되는 음들의 배열입니다.
@@ -168,7 +168,7 @@ export default function scales() {
                 <h3>
                     이 페이지에서는 각 스케일의 종류와 그 음들을 한 눈에 편하게 볼 수 있도록 만들어진 페이지입니다.
                 </h3>
-            </CarouselWrap>
+            </CarouselWrap> */}
         </Wrap>
     )
 }
