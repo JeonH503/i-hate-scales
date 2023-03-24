@@ -164,6 +164,7 @@ function Metronome() {
     const beatInterval = (beatCells:BeatCell[]) => {
         let interval = 100;
         let index = 0;
+        console.log("create Interval");
         
         return window.setInterval(() => {
             if(audioContext !== undefined) {
@@ -198,8 +199,14 @@ function Metronome() {
             }
         },200)
 
-        return () => clearTimeout(temp)
+        return () => {
+            clearTimeout(temp)
+        }
     },[state,bpm,beat])
+
+    useEffect(() => {
+        return () => clearInterval(soundInterval)
+    },[soundInterval])
 
     return(
         <MetronomeWrap>
