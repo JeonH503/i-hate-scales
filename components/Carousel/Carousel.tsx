@@ -1,4 +1,4 @@
-import React,{useMemo,useState,useEffect,useRef,MouseEvent} from "react";
+import React,{useMemo,useState,useEffect,useRef,MouseEvent,TouchEvent} from "react";
 import styled from "styled-components"; 
 
 interface slideProps {
@@ -142,6 +142,26 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
         setDragPos(0) 
     }
 
+    const onTouchStart = (e:TouchEvent) => {
+        if(!animating)
+            setClickedPos(e.touches[0].clientX)
+    }
+
+    const onTouchMove = (e:TouchEvent) => {
+        if(clickedPos)
+            setDragPos(e.touches[0].clientX - clickedPos)   
+    }
+
+    const onTouchEnd = () => {
+        if(dragPos < -50)
+            move('next')
+        else if(dragPos > 50)
+            move('prev')
+
+        setClickedPos(0)
+        setDragPos(0) 
+    }
+
     useEffect(() => {
     },[])
 
@@ -161,7 +181,7 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
     },[children])
 
     return (
-        <CarouselWrap onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseMove={onMouseMove} onMouseLeave={onMouseUp} ref={slideRef}>
+        <CarouselWrap onTouchEnd={onTouchEnd} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseMove={onMouseMove} onMouseLeave={onMouseUp} ref={slideRef}>
             <Slides slideSize={slideSize} slideIndex={slideIndex} dragPos={dragPos} animating={animating}>
                 {RenderSlides}
                 {/* <Slide>d</Slide> */}
