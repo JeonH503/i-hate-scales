@@ -52,6 +52,7 @@ const BpmSliderWrap = styled.div`
 const Button = styled.button`
     border: none;
     padding: 5px 10px;
+    line-height:22px;
     color: white;
     background-color: ${({ theme }) => theme.color.sencondary};
     border-radius: 4px;

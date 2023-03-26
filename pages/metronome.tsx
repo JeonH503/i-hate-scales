@@ -5,13 +5,13 @@ import Head from 'next/head'
 const Wrap = styled.div`
     width:100%;
     margin:0 auto;
-    height:35vh;
 `
 
 const MetronomeWrap = styled.div`
     display:flex;
     width:100%;
     height:100%;
+    padding:50px 0;
     justify-content:center;
     align-items:center;
     background:white;
