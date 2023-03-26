@@ -1,11 +1,13 @@
-import { useState,useRef,useEffect,memo,ChangeEvent } from "react" 
+import { useState,useRef,useEffect,memo,ChangeEvent,KeyboardEvent } from "react" 
 import BeatCell from "./Component/BeatCell";
 import Beats from "./Component/beats"
 import styled from "styled-components"; 
 
 const MemoBeatElements = memo(Beats)
 
-const MetronomeWrap = styled.div`
+const MetronomeWrap = styled.div.attrs(props => ({
+    tabindex:0
+}))`
     width:65%;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 10px;
@@ -184,6 +186,14 @@ function Metronome() {
         },interval) 
     }
 
+    const keyDownEvent = (e:KeyboardEvent) => {
+        if(e.key === 'ArrowLeft') {
+            bpmChangeEvent(-1)
+        } else if(e.key === 'ArrowRight') {
+            bpmChangeEvent(1)
+        }
+    }
+
     useEffect(() => {
         if(state && soundInterval) {
             clearInterval(soundInterval);
@@ -212,7 +222,7 @@ function Metronome() {
     },[soundInterval])
 
     return(
-        <MetronomeWrap>
+        <MetronomeWrap tabIndex={0} onKeyDown={keyDownEvent}>
             <BpmDisplay>{bpm} BPM</BpmDisplay>
             <BeatDisplay>
                 <tbody>
