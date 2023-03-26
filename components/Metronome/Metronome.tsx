@@ -92,7 +92,10 @@ function Metronome() {
     let nextNoteTime = 0;
 
     const bpmChangeEvent = (value:number) => {
-            setBpm(bpm + value)   
+        if(bpm === 300 || bpm === 20)
+            return false;
+
+        setBpm(bpm + value)   
     }
 
     const buttonClickEvent = () => {
