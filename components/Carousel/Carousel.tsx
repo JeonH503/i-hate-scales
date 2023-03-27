@@ -162,9 +162,6 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
         setDragPos(0) 
     }
 
-    useEffect(() => {
-    },[])
-
     const RenderSlides = useMemo(() => {
         // slides 맨앞, 맨뒤에 하나씩 더 추가
         let childrens
