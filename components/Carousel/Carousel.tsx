@@ -61,7 +61,7 @@ const Slides = styled.div.attrs<slideProps>(props => ({
         transform: `translateX(${props.slideSize * -props.slideIndex + props.dragPos}px)`,
         transition : props.animating ? "transform 0.30s ease 0s" : "none"
     }
-}))`
+}))<slideProps>`
     display: flex;
 `
 
