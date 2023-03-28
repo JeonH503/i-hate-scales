@@ -56,10 +56,13 @@ const CarouselWrap = styled.div`
     margin-bottom:20px;
 `
 
-const Slides = styled.div<slideProps>`
+const Slides = styled.div.attrs<slideProps>(props => ({
+    style: {
+        transform: `translateX(${props.slideSize * -props.slideIndex + props.dragPos}px)`,
+        transition : props.animating ? "transform 0.30s ease 0s" : "none"
+    }
+}))`
     display: flex;
-    transform:translateX(${(props)=>props.slideSize * -props.slideIndex + props.dragPos}px);
-    ${(props)=>props.animating ? "transition : transform 0.30s ease 0s;" : ''}
 `
 
 const Slide =styled.div`
