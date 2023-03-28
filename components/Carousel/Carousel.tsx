@@ -74,7 +74,7 @@ const Slide =styled.div`
     }
 ` 
 
-function Carousel ({children}:{children:React.ReactNode[]}) {
+function Carousel ({children}:{children:React.ReactNode[] | React.ReactNode}) {
     const [animating, setAnimating] = useState(false);
     const [slideIndex, setSlideIndex] = useState(1);
     const [slideSize, setSlideSize] = useState(0);
@@ -113,8 +113,8 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
     const relocation = (index:number) => {
         if(children) {
             if(index === 0)
-                setSlideIndex(children.length)
-            else if(index === children.length+1)
+                setSlideIndex(Array.isArray(children) ? children.length : 1)
+            else if(index === (Array.isArray(children) ? children.length+1 : 2))
                 setSlideIndex(1)
         }
     }
@@ -169,7 +169,11 @@ function Carousel ({children}:{children:React.ReactNode[]}) {
         // slides 맨앞, 맨뒤에 하나씩 더 추가
         let childrens
         if(children) {
-            let temp = [children[children.length-1], ...children,children[0]]
+            let temp = []
+            if(Array.isArray(children))
+                temp = [children[children.length-1], ...children,children[0]]
+            else
+                temp = [children,children,children]
             childrens = temp.map((e,i) => {
                 return <Slide key={i}>
                     {e}
