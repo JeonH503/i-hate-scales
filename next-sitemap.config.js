@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-    siteUrl: 'https://i-hate-scales',
+    siteUrl: 'https://i-hate-scales.online',
     generateRobotsTxt: true,
     sitemapSize: 7000,
     changefreq: 'daily',
