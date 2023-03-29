@@ -2,7 +2,7 @@ import {memo} from "react"
 import Carousel from '@/components/Carousel/Carousel'
 import styled from 'styled-components'
 import sclaes_data from '@/components/Scales/scales.json'
-import Head from "next/head"
+import HeadMeta from "@/components/HeaderMeta"
 
 interface Flet {
     code?:string;
@@ -145,9 +145,7 @@ const Scales = () => {
 export default function scales() {
     return (
         <Wrap>
-            <Head>
-                <title>Scales</title>
-            </Head>
+            <HeadMeta title="Metronome" description='스케일을 배움으로써 즉흥 연주가 가능합니다 당신의 기타 실력을 올려보세요'/>
             <h1>Scales</h1>
             <CarouselWrap>
                 <Carousel>

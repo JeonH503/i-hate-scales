@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Metronome from '@/components/Metronome/Metronome'
-import Head from 'next/head'
+import HeadMeta from "@/components/HeaderMeta"
 
 const Wrap = styled.div`
     width:100%;
@@ -21,9 +21,7 @@ const MetronomeWrap = styled.div`
 export default function metronome() {
     return (
         <Wrap>
-            <Head>
-                <title>Metronome</title>
-            </Head>
+            <HeadMeta title="Metronome" description='메트로놈을 통해 정확한 연주가 가능하도록 연습해보세요'/>
             <h1>Metronome</h1>
             <MetronomeWrap>
                 <Metronome/>

@@ -1,6 +1,7 @@
 import styled, {keyframes} from "styled-components"
 import Image from "next/image"
 import Link from "next/link"
+import HeadMeta from "@/components/HeaderMeta"
 
 const FadeIn = keyframes`
     from {
@@ -78,6 +79,7 @@ const Button = styled.button`
 export default function Home() {
   return (
     <Wrap>
+      <HeadMeta/>
       <InnerWrap>
         <ImageWrap>
           <Image alt="guitar" fill={true} style={{objectFit:"cover"}}  src="/guitar.jpg"/>
