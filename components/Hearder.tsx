@@ -54,7 +54,7 @@ function Header () {
     return <HeaderWrap>
         <Logo>
             <Link href="/">
-                <Image alt="logo" fill={true} style={{objectFit:"contain"}} src="/logo.png"/>
+                <Image alt="logo" fill={true} style={{objectFit:"contain"}} src="/logo.jpg"/>
             </Link>
         </Logo>
         <Nav>

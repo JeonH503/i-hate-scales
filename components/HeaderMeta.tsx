@@ -22,7 +22,7 @@ function HeadMeta({ title, description, url }:HeadMetaProps){
       <meta property="og:title" content={title || "i-hate-scales"} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url || "https://i-hate-scales"} />
-      <meta property="og:image" content="https://i-hate-scales/_next/image?url=%2Flogo.png&w=1080&q=75" />
+      <meta property="og:image" content="https://i-hate-scales/_next/image?url=%2Flogo.jpg&w=1080&q=75" />
       <meta property="og:article:author" content="i-hate-scales" />
     </Head>
   );
