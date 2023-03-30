@@ -17,6 +17,7 @@ function HeadMeta({ title, description, url }:HeadMetaProps){
           "메트로놈과 스케일로 당신의 기타 연주 실력을 늘려보세요"
         }
       />
+      <meta name="naver-site-verification" content="77b95540d0de7dd36954dfc23b263766fe14cc62" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta property="og:title" content={title || "i-hate-scales"} />
       <meta property="og:type" content="website" />
