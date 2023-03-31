@@ -16,7 +16,7 @@ const FadeIn = keyframes`
 const Wrap = styled.div`
   width:100vw;
   height:calc(100vh - 140px);
-  background:#1D1D1D;
+  background:${({ theme }) => theme.color.primary};
   position:relative;
 
 
@@ -31,7 +31,7 @@ const Wrap = styled.div`
 const InnerWrap = styled.div`
   width:100%;
   height:100%;
-  background:#1D1D1D;
+  background:${({ theme }) => theme.color.primary};
   animation : ${FadeIn} 2s;
 `
 
@@ -49,7 +49,7 @@ const Flexbox = styled.div`
 `
 
 const Guitar = styled.h1`
-  color:#DFB259 !important;
+  color:${({ theme }) => theme.color.sencondary} !important;
 `
 
 const ImageWrap = styled.div`
