@@ -8,7 +8,7 @@ const MemoBeatElements = memo(Beats)
 const MetronomeWrap = styled.div.attrs(props => ({
     tabindex:0
 }))`
-    width:65%;
+    width:70%;
     border: 1px solid rgb(204, 204, 204);
     border-radius: 10px;
     box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
@@ -79,6 +79,7 @@ const BeatWrap = styled.div`
 
     & p {
         margin: 0 10px;
+        line-height:30px;
     }
 `
 

@@ -5,6 +5,10 @@ import HeadMeta from "@/components/HeaderMeta"
 const Wrap = styled.div`
     width:100%;
     margin:0 auto;
+
+    & h1 {
+        margin-left:10px;
+    }
 `
 
 const MetronomeWrap = styled.div`
