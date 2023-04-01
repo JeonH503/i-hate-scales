@@ -1,4 +1,3 @@
-import {memo} from "react"
 import Carousel from '@/components/Carousel/Carousel'
 import styled from 'styled-components'
 import sclaes_data from '@/components/Scales/scales.json'

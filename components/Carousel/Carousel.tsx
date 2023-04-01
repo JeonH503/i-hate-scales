@@ -1,5 +1,6 @@
 import React,{useMemo,useState,useEffect,useRef,MouseEvent,TouchEvent} from "react";
 import styled from "styled-components"; 
+import Loader from "./loader";
 
 interface slideProps {
     slideSize:number;
@@ -53,7 +54,6 @@ const CarouselWrap = styled.div`
     width: 100%;
     height:100%;
     user-select:none;
-    margin-bottom:20px;
 `
 
 const Slides = styled.div.attrs<slideProps>(props => ({
@@ -80,14 +80,16 @@ function Carousel ({children}:{children:React.ReactNode[] | React.ReactNode}) {
     const [slideSize, setSlideSize] = useState(0);
     const [clickedPos, setClickedPos] = useState(0); //마우스 클릭한 좌표
     const [dragPos, setDragPos] = useState(0) //클릭된 상태로 드래그된 좌표
+    const [loading, setLoading] = useState(true);
 
     const slideRef = useRef() as React.RefObject<HTMLDivElement> 
 
     useEffect(() => {
-        if(slideRef.current)
-            setSlideSize(slideRef.current.getBoundingClientRect().width)
-
+        // if(slideRef.current)
+        //     setSlideSize(slideRef.current.getBoundingClientRect().width)
+        handleReSize()
         // window resize event 추가
+        window.addEventListener('load', handleReSize)
         window.addEventListener('resize', handleReSize)
     },[])
 
@@ -121,9 +123,11 @@ function Carousel ({children}:{children:React.ReactNode[] | React.ReactNode}) {
 
     // 브라우저 resize 크기 다시 계산
     const handleReSize = () => {
-        if(slideRef.current)
+        if(slideRef.current) {
             setSlideSize(slideRef.current.getBoundingClientRect().width)
-    }
+            setLoading(false)
+        }
+    }   
 
     const onMouseMove = (e:MouseEvent) => {
         if(clickedPos)
@@ -186,19 +190,25 @@ function Carousel ({children}:{children:React.ReactNode[] | React.ReactNode}) {
 
     return (
         <CarouselWrap onTouchEnd={onTouchEnd} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onMouseDown={onMouseDown} onMouseUp={onMouseUp} onMouseMove={onMouseMove} onMouseLeave={onMouseUp} ref={slideRef}>
-            <Slides slideSize={slideSize} slideIndex={slideIndex} dragPos={dragPos} animating={animating}>
-                {RenderSlides}
-                {/* <Slide>d</Slide> */}
-            </Slides>
-            
-            <Buttons>
-                <ButtonFlex justify="left">
-                    <Button float="left" onClick={()=>{move('prev')}}>&lt;</Button>
-                </ButtonFlex>
-                <ButtonFlex justify="right">
-                    <Button float="right" onClick={()=>{move('next')}}>&gt;</Button>
-                </ButtonFlex>
-            </Buttons>
+            {
+                loading ?
+                <Loader/>
+                :
+                <>
+                    <Slides slideSize={slideSize} slideIndex={slideIndex} dragPos={dragPos} animating={animating}>
+                        {RenderSlides}
+                    </Slides>
+                    
+                    <Buttons>
+                        <ButtonFlex justify="left">
+                            <Button float="left" onClick={()=>{move('prev')}}>&lt;</Button>
+                        </ButtonFlex>
+                        <ButtonFlex justify="right">
+                            <Button float="right" onClick={()=>{move('next')}}>&gt;</Button>
+                        </ButtonFlex>
+                    </Buttons>
+                </>
+            }
         </CarouselWrap>
 
     )
