@@ -148,7 +148,7 @@ const Scales = () => {
 export default function scales() {
     return (
         <Wrap>
-            <HeadMeta title="Metronome" description='스케일을 배움으로써 즉흥 연주가 가능합니다 당신의 기타 실력을 올려보세요'/>
+            <HeadMeta title="Scales" description='스케일을 배움으로써 즉흥 연주가 가능합니다 당신의 기타 실력을 올려보세요'/>
             <h1>Scales</h1>
             <CarouselWrap>
                 <Carousel>
